@@ -39,6 +39,11 @@ python etl.py
 
 Output chart saved to `output/download_trends.png`.
 
+| | URL |
+|---|-----|
+| **Web UI** | _N/A — terminal demo_ |
+| **Output** | `output/download_trends.png` (generated after run) |
+
 ---
 
 ## Input schema
