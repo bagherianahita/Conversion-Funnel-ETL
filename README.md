@@ -30,14 +30,14 @@ Transform raw user event logs into structured session-level datasets for **conve
 
 ---
 
-## Quick start
+## Quick start (employers — no API keys)
 
 ```bash
 pip install -r requirements.txt
 python etl.py
 ```
 
-`etl.py` includes sample data and generates **7-day rolling average** download trend charts by product and cookie type (new vs existing).
+Output chart saved to `output/download_trends.png`.
 
 ---
 

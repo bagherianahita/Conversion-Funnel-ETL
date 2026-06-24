@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from pathlib import Path
+
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -98,4 +100,7 @@ def sample_events() -> pd.DataFrame:
 if __name__ == "__main__":
     agg = build_download_trends(sample_events())
     print(agg.head())
-    plot_rolling_trends(agg)
+    out = Path("output")
+    out.mkdir(exist_ok=True)
+    plot_rolling_trends(agg, save_path=str(out / "download_trends.png"))
+    print(f"Chart saved to {out / 'download_trends.png'}")
