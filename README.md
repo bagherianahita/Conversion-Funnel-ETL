@@ -1,2 +1,60 @@
-# Conversion-Funnel-ETL
-Transform raw user logs into a structured, single-row dataset per session for accurate conversion funnel analysis.
+# Conversion Funnel ETL
+
+Transform raw user event logs into structured session-level datasets for **conversion funnel analysis** and digital product download trends.
+
+![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=flat-square&logo=python&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-ETL-150458?style=flat-square&logo=pandas&logoColor=white)
+
+---
+
+## Architecture
+
+```
+┌──────────────────┐     classify      ┌─────────────────────┐
+│ Raw event logs   │ ────────────────► │  Device / route     │
+│ (CSV / parquet)  │     aggregate     │  classification     │
+└────────┬─────────┘                   └──────────┬──────────┘
+         │                                          │
+         └──────────────────┬───────────────────────┘
+                            ▼
+                 ┌─────────────────────┐
+                 │  Session dataset    │
+                 │  (one row / user)   │
+                 └──────────┬──────────┘
+                            ▼
+                 ┌─────────────────────┐
+                 │  Rolling-avg plots  │
+                 │  by product/cookie  │
+                 └─────────────────────┘
+```
+
+---
+
+## Quick start
+
+```bash
+pip install -r requirements.txt
+python etl.py
+```
+
+`etl.py` includes sample data and generates **7-day rolling average** download trend charts by product and cookie type (new vs existing).
+
+---
+
+## Input schema
+
+| Column | Description |
+|--------|-------------|
+| `timestamp` | Event time |
+| `log_type` | e.g. `download`, `view` |
+| `cookie_id` | Session / CloudID |
+| `sub_product_code` | Product code (`AUD01`, `VID01`, …) |
+| `route` | User route path |
+
+Extend `build_download_trends()` for your production event pipeline.
+
+---
+
+## License
+
+MIT — see [LICENSE](LICENSE).
