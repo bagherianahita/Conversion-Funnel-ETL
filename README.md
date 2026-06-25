@@ -34,15 +34,19 @@ Transform raw user event logs into structured session-level datasets for **conve
 
 ```bash
 pip install -r requirements.txt
+streamlit run app.py
+```
+
+Or CLI only:
+
+```bash
 python etl.py
 ```
 
-Output chart saved to `output/download_trends.png`.
-
 | | URL |
 |---|-----|
-| **Web UI** | _N/A — terminal demo_ |
-| **Output** | `output/download_trends.png` (generated after run) |
+| **Web UI (demo)** | http://localhost:8508 |
+| **CLI output** | `output/download_trends.png` |
 
 ---
 
