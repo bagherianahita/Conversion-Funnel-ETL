@@ -1,4 +1,4 @@
-# Conversion Funnel ETL
+﻿# Conversion Funnel ETL
 
 Transform raw user event logs into structured session-level datasets for **conversion funnel analysis** and digital product download trends.
 
@@ -30,7 +30,7 @@ Transform raw user event logs into structured session-level datasets for **conve
 
 ---
 
-## Quick start (employers — no API keys)
+## Quick start
 
 ```bash
 pip install -r requirements.txt
